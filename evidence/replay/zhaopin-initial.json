@@ -1,0 +1,36 @@
+{
+  "sourceId": "zhaopin",
+  "label": "智联招聘 第1次采集（回放快照·第二来源初始建档）",
+  "jobs": [
+    {
+      "identity": "CC111402500J90123456701",
+      "title": "Java 开发工程师",
+      "company": "某科技公司",
+      "city": "深圳",
+      "requirements": "负责 Java 服务端开发\n熟悉 Spring 全家桶与 MySQL\n3-5 年经验，本科及以上",
+      "deadline": null,
+      "status": "open",
+      "detailUrl": "https://www.zhaopin.com/jobdetail/CC111402500J90123456701"
+    },
+    {
+      "identity": "CC111402500J90123456702",
+      "title": "前端开发工程师",
+      "company": "某互联网公司",
+      "city": "北京",
+      "requirements": "负责前端页面与交互开发\n熟悉 Vue/React，掌握 Webpack\n本科及以上",
+      "deadline": null,
+      "status": "open",
+      "detailUrl": "https://www.zhaopin.com/jobdetail/CC111402500J90123456702"
+    },
+    {
+      "identity": "CC111402500J90123456703",
+      "title": "产品经理",
+      "company": "某数据公司",
+      "city": "深圳",
+      "requirements": "负责产品规划与需求管理\n熟悉数据产品，具备用户研究能力\n3 年以上产品经验",
+      "deadline": null,
+      "status": "open",
+      "detailUrl": "https://www.zhaopin.com/jobdetail/CC111402500J90123456703"
+    }
+  ]
+}

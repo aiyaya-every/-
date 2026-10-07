@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://exam.110-lab.cn/job-tracking/replay.schema.json",
+  "title": "岗位采集回放快照（Replay Snapshot）",
+  "description": "离线验证变更追踪逻辑用的本地回放快照格式。回放不替代真实采集：应用与界面均明确标注 is_replay，绝不冒充真实抓取。jobs 数组内字段为 camelCase。",
+  "type": "object",
+  "required": ["sourceId", "jobs"],
+  "properties": {
+    "sourceId": {
+      "type": "string",
+      "enum": ["tencent", "zhaopin"],
+      "description": "来源标识：tencent=腾讯招聘（官方），zhaopin=智联招聘（平台）。"
+    },
+    "label": {
+      "type": "string",
+      "description": "本次快照的可读标注（仅用于展示与记录，不参与逻辑）。"
+    },
+    "jobs": {
+      "type": "array",
+      "minItems": 1,
+      "description": "本次快照中的岗位列表（可能不完整；缺失的岗位不会被判关闭）。",
+      "items": { "$ref": "#/$defs/job" }
+    }
+  },
+  "$defs": {
+    "job": {
+      "type": "object",
+      "required": ["identity", "title"],
+      "description": "单条岗位。identity 为“来源 + 稳定岗位 ID”中的稳定 ID（腾讯 PostId / 智联 number），同名不同 identity 保持独立。",
+      "properties": {
+        "identity": { "type": "string", "description": "来源内稳定唯一标识。" },
+        "title": { "type": "string", "description": "岗位名称。" },
+        "company": { "type": "string", "default": "", "description": "公司名称。" },
+        "city": { "type": "string", "description": "城市（用于城市搜索匹配）。" },
+        "requirements": {
+          "type": ["string", "null"],
+          "description": "岗位要求（关键词匹配标题或要求）。缺失时为 null，不推测补全。"
+        },
+        "deadline": {
+          "type": ["string", "null"],
+          "description": "截止时间。来源未公开时为 null。"
+        },
+        "status": {
+          "type": ["string", "null"],
+          "enum": ["open", "closed", null],
+          "description": "招聘状态。仅当来源明确给出关闭信号才允许 closed，且应同时提供 explicitClosedEvidence；列表缺失/超时/解析失败一律不得判 closed。"
+        },
+        "detailUrl": {
+          "type": ["string", "null"],
+          "description": "岗位详情链接（identity 缺失时的兜底身份）。"
+        },
+        "explicitClosedEvidence": {
+          "type": "string",
+          "description": "status=closed 时的明确关闭依据（证据文本）。无此字段的 closed 视为缺少依据。"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

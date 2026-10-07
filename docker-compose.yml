@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      PORT: "3000"
+      DATA_DIR: /app/data
+      SESSION_SECRET: "${SESSION_SECRET:-}"
+      COLLECT_TIMEOUT_MS: "${COLLECT_TIMEOUT_MS:-20000}"
+      REQUEST_INTERVAL_MS: "${REQUEST_INTERVAL_MS:-500}"
+      ZHAOPIN_KEYWORDS: "${ZHAOPIN_KEYWORDS:-Java,前端,产品经理}"
+    volumes:
+      - app-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  app-data:

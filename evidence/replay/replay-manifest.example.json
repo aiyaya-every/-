@@ -1,0 +1,50 @@
+{
+  "purpose": "回放快照清单（示例）。steps[].changes / expected 为人工复核材料，仅作预期标注；应用在导入快照时自行按真实变更规则比较，不依赖本文件。SHA-256 用于核对快照未被篡改。",
+  "snapshots": [
+    {
+      "file": "tencent-initial.json",
+      "sha256": "e15a93a883a1cad07848d42ca9c23a9e8940439aeecc71bed837f884267e8a45",
+      "sourceId": "tencent",
+      "description": "初始建档：4 条腾讯岗位。预期 new=4 / changed=0 / unchanged=0，无动态。"
+    },
+    {
+      "file": "tencent-changed.json",
+      "sha256": "3253daf274b68760e2d8ebeb23ae3a382479f86701891ee3de6c324c51ad7aa1",
+      "sourceId": "tencent",
+      "description": "字段变化：1849066019 要求变更 + 截止时间补充；1849067021 状态 closed（附 explicitClosedEvidence）；1849067022 无变化；1849067023 本次缺失（应保留为 open，不判关闭）。"
+    },
+    {
+      "file": "zhaopin-initial.json",
+      "sha256": "12ef60e1ff3f0240d872f421dc1dd7806b8b21fea327684d601f2849e5f640b2",
+      "sourceId": "zhaopin",
+      "description": "第二来源（招聘平台）初始建档：3 条智联岗位。预期 new=3 / changed=0，与腾讯来源互不影响。"
+    }
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "snapshot": "tencent-initial.json",
+      "expected": { "new": 4, "changed": 0, "unchanged": 0, "feed": 0 }
+    },
+    {
+      "order": 2,
+      "snapshot": "tencent-changed.json",
+      "expected": {
+        "new": 0,
+        "changed": 2,
+        "unchanged": 1,
+        "changes": [
+          { "identity": "1849066019", "field": "requirements", "before": "…3 年以上服务端开发经验", "after": "…5 年以上服务端开发经验…" },
+          { "identity": "1849066019", "field": "deadline", "before": null, "after": "2026-12-31" },
+          { "identity": "1849067021", "field": "status", "before": "open", "after": "closed", "evidence": "腾讯招聘官网该岗位详情页标注『该职位已停止招聘』" }
+        ],
+        "missing_retained": ["1849067023"]
+      }
+    },
+    {
+      "order": 3,
+      "snapshot": "zhaopin-initial.json",
+      "expected": { "new": 3, "changed": 0, "unchanged": 0 }
+    }
+  ]
+}

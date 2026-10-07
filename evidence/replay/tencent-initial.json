@@ -1,0 +1,46 @@
+{
+  "sourceId": "tencent",
+  "label": "腾讯招聘 第1次采集（回放快照·初始建档）",
+  "jobs": [
+    {
+      "identity": "1849066019",
+      "title": "后台开发工程师",
+      "company": "腾讯",
+      "city": "深圳",
+      "requirements": "负责后台服务架构设计与研发\n熟悉 Go/C++，了解分布式系统与消息队列\n3 年以上服务端开发经验",
+      "deadline": null,
+      "status": "open",
+      "detailUrl": "https://careers.tencent.com/job.html?postId=1849066019"
+    },
+    {
+      "identity": "1849067021",
+      "title": "前端开发工程师",
+      "company": "腾讯",
+      "city": "北京",
+      "requirements": "负责 Web 前端页面与组件开发\n熟悉 JavaScript/TypeScript 与主流框架\n关注性能与工程化",
+      "deadline": null,
+      "status": "open",
+      "detailUrl": "https://careers.tencent.com/job.html?postId=1849067021"
+    },
+    {
+      "identity": "1849067022",
+      "title": "产品经理",
+      "company": "腾讯",
+      "city": "深圳",
+      "requirements": "负责数据产品需求分析与落地\n具备良好的逻辑与沟通能力\n熟悉数据分析方法",
+      "deadline": null,
+      "status": "open",
+      "detailUrl": "https://careers.tencent.com/job.html?postId=1849067022"
+    },
+    {
+      "identity": "1849067023",
+      "title": "测试开发工程师",
+      "company": "腾讯",
+      "city": "上海",
+      "requirements": "负责自动化测试框架与工具开发\n熟悉 Python/Java，了解 CI/CD",
+      "deadline": null,
+      "status": "open",
+      "detailUrl": "https://careers.tencent.com/job.html?postId=1849067023"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>岗位搜索与变更追踪</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header id="topbar" class="hidden">
+    <div class="brand">岗位搜索与变更追踪</div>
+    <nav id="main-nav">
+      <a href="#/search" data-nav="search">岗位搜索</a>
+      <a href="#/follows" data-nav="follows">我的关注</a>
+      <a href="#/feed" data-nav="feed">关注动态</a>
+      <a href="#/collect" data-nav="collect" id="nav-collect" class="hidden">采集管理</a>
+    </nav>
+    <div class="user">
+      <span id="user-name" class="muted"></span>
+      <button id="logout-btn" class="btn btn-ghost">退出</button>
+    </div>
+  </header>
+
+  <main id="view"></main>
+
+  <div id="login-view" class="login-wrap hidden">
+    <form id="login-form" class="login-card">
+      <h1>岗位搜索与变更追踪</h1>
+      <p class="muted">请登录后使用。预置测试账号见 README（含数据维护账号与普通账号）。</p>
+      <label>用户名 <input id="login-username" autocomplete="username" placeholder="如 alice"></label>
+      <label>密码 <input id="login-password" type="password" autocomplete="current-password"></label>
+      <div id="login-error" class="error hidden"></div>
+      <button class="btn btn-primary" type="submit">登录</button>
+    </form>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

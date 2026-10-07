@@ -1,0 +1,1 @@
+run_id,source_id,source_type,entry_url,started_at,finished_at,status,http_status,fetched_count,valid_count,new_count,changed_count,unchanged_count,failed_count,raw_snapshot_path,raw_sha256,error_code,error_message

@@ -1,0 +1,19 @@
+{
+  "name": "job-tracking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "岗位搜索与变更追踪 — 求职者岗位搜索、筛选方案收藏、关注与变更动态应用",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "collect": "node scripts/collect.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
