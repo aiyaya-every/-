@@ -1,1 +1,3 @@
-run_id,source_id,source_type,entry_url,started_at,finished_at,status,http_status,fetched_count,valid_count,new_count,changed_count,unchanged_count,failed_count,raw_snapshot_path,raw_sha256,error_code,error_message
+﻿run_id,source_id,source_type,entry_url,started_at,finished_at,status,http_status,fetched_count,valid_count,new_count,changed_count,unchanged_count,failed_count,raw_snapshot_path,raw_sha256,error_code,error_message
+run-2,zhaopin,recruitment_platform,,2026-10-07T06:52:23.244Z,2026-10-07T06:52:27.216Z,success,200,60,60,60,0,0,0,evidence/snapshots/zhaopin-2-raw.json,80614c648ed8f9bdce8330946684ea85a6438eb312c3e87b307369bcfc12d386,,
+run-1,tencent,company_careers,,2026-10-07T06:52:22.552Z,2026-10-07T06:52:23.237Z,success,200,30,30,30,0,0,0,evidence/snapshots/tencent-1-raw.json,04e1cfbf123a4eb1c0120e8fa48a407d766cd0b82f4cf86d52f28a0b9bb0173e,,

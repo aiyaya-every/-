@@ -107,12 +107,12 @@ function companyEvidenceUrl(sourceId) {
 function collectionMethod(sourceId) {
   return sourceId === 'tencent'
     ? '公开接口 careers.tencent.com/tencentcareer/api/post/Query'
-    : '公开接口 fe-api.zhaopin.com/c/i/sou';
+    : '搜索页 www.zhaopin.com/sou（SSR，内嵌 __INITIAL_STATE__.positionList）';
 }
 function accessNotes(sourceId) {
   return sourceId === 'tencent'
     ? '无需登录；GET 单页 pageSize=30；请求间隔约 1s'
-    : '无需登录；按关键词轮询（Java/前端/产品经理）各取 pageSize=60；请求间隔约 0.5s；按 number 去重';
+    : '无需登录；请求 sou.zhaopin.com/?kw=… 跟随重定向解析 SSR 页面；按关键词轮询（Java/前端/产品经理）；按 number 去重';
 }
 
 main();

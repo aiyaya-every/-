@@ -80,7 +80,7 @@ npm start
 | 来源 | 类型 | 入口 | 采集方式 | 身份字段 |
 |---|---|---|---|---|
 | 腾讯招聘 | `company_careers`（大厂官方招聘网站） | https://careers.tencent.com/ | 公开接口 `POST /tencentcareer/api/post/Query`（pageSize=30，无需登录） | `PostId` |
-| 智联招聘 | `recruitment_platform`（招聘平台） | https://www.zhaopin.com/ | 公开接口 `fe-api.zhaopin.com/c/i/sou`（按关键词 Java/前端/产品经理 各取 pageSize=60，无需登录，请求间隔 0.5s） | `number`（详情链接兜底） |
+| 智联招聘 | `recruitment_platform`（招聘平台） | https://www.zhaopin.com/ | 搜索页 `www.zhaopin.com/sou`（SSR 服务端渲染，页面 `<script>` 内嵌 `__INITIAL_STATE__.positionList`；请求 `sou.zhaopin.com/?kw=…` 跟随重定向，按关键词 Java/前端/产品经理 轮询，无需登录，请求间隔 0.5s） | `number`（详情链接兜底） |
 
 - 真实采集（需可访问真实网络的机器）：`node scripts/collect.js [sourceId...]`，或应用内「采集管理」→「采集该来源 / 全部」。原始响应保存为快照并计算 SHA-256，执行记录写入 `collection_runs` 表；`scripts/collect.js` 会同时导出 `evidence/collection-runs.csv`、`evidence/source-evidence.csv` 并复制原始快照到 `evidence/snapshots/`。
 - 两类来源各至少 10 个有效岗位、合计至少 20 个。官方招聘网站来源已给出“公司官网指向招聘入口”的可核对依据（见 `evidence/source-evidence.csv`）。
